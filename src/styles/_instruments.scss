@@ -1,0 +1,56 @@
+@use "sass:math";
+/* Міксин для перетворення px в rem */
+@function rem($pixel) {
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) + rem;
+  } @else {
+    @error 'Не використовуйте одиниці вимірювання під час роботи з функцією rem()! Передавайте аргументом лише числа.';
+  }
+}
+/* Основні шрифти для сторінки */
+@import url(https://fonts.googleapis.com/css?family=Montserrat:300,regular,600,700,800);
+@import url(https://fonts.googleapis.com/css?family=Poppins:regular);
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display:regular,italic);
+$fontPopins: Poppins;
+$fontMontserat: Montserrat;
+$fontPlayfairDisplay: Playfair Display;
+
+/* Основні кольори для сторінки */
+$brownColor: rgb(153, 88, 42);
+$bodyColor: rgb(255, 251, 240);
+$yellowColor: rgb(255, 183, 3);
+$productBlockColor: rgb(255, 241, 204);
+$footerColor: rgb(26, 14, 7);
+
+$titleColor: rgb(67, 40, 24);
+$textWhiteColor: rgb(255, 255, 255);
+$textDarkColor: rgb(0, 0, 0);
+$productTitColor: rgb(67, 40, 24);
+
+/* Основні розміри для сторінки */
+$maxWidthPage: 1366px;
+$textSizeTitle: rem(54);
+$textSize18: rem(18);
+$textSize16: rem(16);
+$textSize14: rem(14);
+
+$borderRad: rem(22);
+/* Міксин для адаптиву */
+@mixin fluid-text($value, $max: 48, $min: 16) {
+  $maxViewportWidth: 1400;
+  $minViewportWidth: 360;
+
+  $maxSize: math.div($max, 16);
+  $minSize: math.div($min, 16);
+  $maxWidth: math.div($maxViewportWidth, 16);
+  $minWidth: math.div($minViewportWidth, 16);
+
+  $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
+  $yAxisIntersection: -$minWidth * $slope + $minSize;
+
+  #{$value}: clamp(
+    #{$minSize * 1rem},
+    #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
+    #{$maxSize * 1rem}
+  );
+}

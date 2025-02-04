@@ -1,0 +1,14 @@
+@use "sass:math";
+@use "./_reset.scss";
+@use "./_instruments.scss" as *;
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.wrapper {
+  height: 100%;
+  background-color: $bodyColor;
+  max-width: $maxWidthPage;
+}
