@@ -18,6 +18,7 @@ function HeaderComponent() {
             <li className="header__item">Contact Us</li>
           </ul>
         </nav>
+
         <button type="button" onClick={() => setOpen(!open)}>
           <Image.HamburgerMenu className={"header__menu-icon"} />
         </button>

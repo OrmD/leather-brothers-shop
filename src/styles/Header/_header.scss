@@ -17,7 +17,7 @@
     align-items: center;
     justify-content: space-between;
     height: 54px;
-    @include fluid-text("gap", 102, -40);
+    @include fluid-text("gap", 95, -40);
     @include fluid-text("padding-left", 123, -70);
     @include fluid-text("padding-right", 123, -70);
     &.open {
@@ -66,19 +66,21 @@
   }
 
   &__logo-text {
-    order: 1;
-    position: relative;
-    top: 0;
-    left: 0;
     height: 30px;
     width: 190px;
     transition: all 1s ease 0s;
+    @media (max-width: 768px) {
+      position: relative;
+      top: 0;
+      left: 0;
+      order: 1;
+    }
   }
 
   &__menu-icon {
-    fill: $bodyColor;
     display: none;
     @media (max-width: 768px) {
+      fill: $bodyColor;
       display: block;
       position: relative;
       left: 80px; /* Початкове значення для плавного переходу */
