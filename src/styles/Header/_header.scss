@@ -1,0 +1,162 @@
+@use "../_instruments.scss" as *;
+.header {
+  background-color: $brownColor;
+  color: $textWhiteColor;
+  font-weight: 300;
+  max-width: $maxWidthPage;
+  box-sizing: border-box;
+  display: block;
+  @media (max-width: 768px) {
+    max-width: none;
+    width: 100%;
+  }
+
+  &__container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 54px;
+    @include fluid-text("gap", 102, -40);
+    @include fluid-text("padding-left", 123, -70);
+    @include fluid-text("padding-right", 123, -70);
+    &.open {
+      .header {
+        &__logo-text {
+          left: 40px;
+          transition: all 1s ease 0s;
+          @media (max-width: 375px) {
+            opacity: 0;
+            visibility: hidden;
+          }
+        }
+        &__body {
+          transition: left 1s ease 0s;
+          left: 0;
+        }
+        &__menu-icon {
+          position: relative;
+          z-index: 11;
+          animation: menuIcon 1s forwards;
+        }
+        &__search-icon {
+          @media (max-width: 375px) {
+            transition: margin-right 1s ease 0s;
+            margin-right: 50px;
+          }
+        }
+        &__list {
+          gap: 10px;
+        }
+      }
+    }
+  }
+
+  &__body {
+    @media (max-width: 768px) {
+      position: fixed;
+      top: 0;
+      left: -200px;
+      padding-top: 60px;
+      height: 100%;
+      width: 200px;
+      background-color: $brownColor;
+      transition: all 1s ease 0s;
+    }
+  }
+
+  &__logo-text {
+    order: 1;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 190px;
+    transition: all 1s ease 0s;
+  }
+
+  &__menu-icon {
+    fill: $bodyColor;
+    display: none;
+    @media (max-width: 768px) {
+      display: block;
+      position: relative;
+      left: 80px; /* Початкове значення для плавного переходу */
+      transform: rotate(0deg);
+      animation: menuIcon2 1s forwards;
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    @include fluid-text("gap", 40, 0);
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  &__item {
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      transition: all 0.3s ease 0s;
+      text-shadow: 1.5px 1.5px 1.5px $footerColor;
+      transform: scale(1.05);
+    }
+  }
+  &__search-icon {
+    cursor: pointer;
+    transition: all 0.5s ease-in 0s;
+    &:hover {
+      animation: searchIcon 1.3s forwards;
+    }
+    @media (max-width: 768px) {
+      order: 2;
+      margin-right: 20px;
+      transition: margin-right 1s ease 0s;
+    }
+  }
+}
+@keyframes searchIcon {
+  0% {
+    transform: rotate(0deg);
+
+    /* Початкова позиція */
+  }
+  100% {
+    transform: rotate(-360deg);
+
+    /* Кінцева позиція */
+  }
+}
+@keyframes menuIcon {
+  0% {
+    left: 0;
+    transform: rotate(0deg);
+
+    /* Початкова позиція */
+  }
+  100% {
+    left: 80px;
+    transform: rotate(360deg);
+
+    /* Кінцева позиція */
+  }
+}
+@keyframes menuIcon2 {
+  0% {
+    left: 80px;
+    transform: rotate(0deg);
+
+    /* Початкова позиція */
+  }
+  100% {
+    left: 0px;
+    transform: rotate(-360deg);
+
+    /* Кінцева позиція */
+  }
+}

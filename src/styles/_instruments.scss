@@ -36,8 +36,8 @@ $textSize14: rem(14);
 
 $borderRad: rem(22);
 /* Міксин для адаптиву */
-@mixin fluid-text($value, $max: 48, $min: 16) {
-  $maxViewportWidth: 1400;
+@mixin fluid-text($value, $max, $min) {
+  $maxViewportWidth: 1366;
   $minViewportWidth: 360;
 
   $maxSize: math.div($max, 16);
