@@ -1,0 +1,23 @@
+@use "./_instruments.scss" as *;
+.active {
+  font-weight: 800;
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 33;
+    top: 24px;
+    left: 50%; /* Центруємо по горизонталі */
+    transform: translateX(-50%);
+    border-radius: 50px 50px 0px 0px;
+    height: rem(22);
+    width: rem(15);
+    background-color: $textWhiteColor;
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+  &.header__item:hover {
+    text-shadow: none;
+    transform: scale(1);
+  }
+}

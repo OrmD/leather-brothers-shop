@@ -1,8 +1,22 @@
 import { Image } from "../Router";
-import { useState } from "react";
+import headerData from "../../data/header.json";
+import { useEffect, useState } from "react";
+
+import { HeaderItem } from "./HeaderItem";
 
 function HeaderComponent() {
   const [open, setOpen] = useState();
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 769);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <header className="header">
@@ -10,19 +24,16 @@ function HeaderComponent() {
         <Image.LogoText className={"header__logo-text"} />
         <nav className="header__body ">
           <ul className="header__list">
-            <li className="header__item">Home</li>
-            <li className="header__item">About Us</li>
-            <li className="header__item">Products</li>
-            <li className="header__item">Label & SDS</li>
-            <li className="header__item">News</li>
-            <li className="header__item">Contact Us</li>
+            {headerData.map((el, index) => {
+              return <HeaderItem key={index} link={el.link} text={el.name} />;
+            })}
           </ul>
         </nav>
-
-        <button type="button" onClick={() => setOpen(!open)}>
-          <Image.HamburgerMenu className={"header__menu-icon"} />
-        </button>
-
+        {isSmallScreen && (
+          <button type="button" onClick={() => setOpen(!open)}>
+            <Image.HamburgerMenu className={"header__menu-icon"} />
+          </button>
+        )}
         <Image.SearchIcon className={"header__search-icon"} />
       </div>
     </header>

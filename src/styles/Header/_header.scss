@@ -16,7 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 54px;
+    height: 74px;
     @include fluid-text("gap", 95, -40);
     @include fluid-text("padding-left", 123, -70);
     @include fluid-text("padding-right", 123, -70);
@@ -100,6 +100,7 @@
   }
 
   &__item {
+    position: relative;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease 0s;

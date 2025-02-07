@@ -1,6 +1,7 @@
 @use "sass:math";
 @use "./_reset";
 @use "_instruments" as *;
+@use "./uniq-class" as *;
 @use "./Header/header";
 
 body {

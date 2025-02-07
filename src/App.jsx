@@ -1,12 +1,13 @@
-import { useState } from "react";
-import { Image } from "./components/Router";
-import viteLogo from "/vite.svg";
+import headerData from "./data/header.json";
 import HeaderComponent from "./components/Header/Header";
+import { HeaderItem } from "./components/Header/HeaderItem";
 
 function App() {
   return (
     <>
       <HeaderComponent />
+
+      <h1>Home</h1>
     </>
   );
 }
