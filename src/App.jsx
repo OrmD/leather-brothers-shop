@@ -1,12 +1,13 @@
-import headerData from "./data/header.json";
 import HeaderComponent from "./components/Header/Header";
-import { HeaderItem } from "./components/Header/HeaderItem";
+import { Block1 } from "./components/Block1/Block1";
+import { Block2 } from "./components/Block2/Block2";
 
 function App() {
   return (
     <>
       <HeaderComponent />
-
+      <Block1 />
+      <Block2 />
       <h1>Home</h1>
     </>
   );

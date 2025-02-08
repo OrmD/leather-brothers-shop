@@ -13,6 +13,7 @@ export { default as Product02 } from "./Product02.jsx"
 export { default as Product03 } from "./Product03.jsx"
 export { default as Product04 } from "./Product04.jsx"
 export { default as VideoPreview } from "./VideoPreview.jsx"
+export { default as TransitionImg } from "./TransitionImg.jsx"
 // SVG----------------------------------------------------------
 export { default as ArrowButton } from "./svg/ArrowButton.jsx"
 export { default as Facebook } from "./svg/Facebook.jsx"

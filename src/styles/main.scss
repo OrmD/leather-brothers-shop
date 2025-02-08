@@ -2,7 +2,9 @@
 @use "./_reset";
 @use "_instruments" as *;
 @use "./uniq-class" as *;
-@use "./Header/header";
+@use "./Header/_Header";
+@use "./Block1";
+@use "./Block2";
 
 body {
   font-family: $fontMontserat;
@@ -14,4 +16,5 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }

@@ -1,7 +1,6 @@
 import { Image } from "../Router";
 import headerData from "../../data/header.json";
 import { useEffect, useState } from "react";
-
 import { HeaderItem } from "./HeaderItem";
 
 function HeaderComponent() {
