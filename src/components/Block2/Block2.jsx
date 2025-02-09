@@ -5,6 +5,7 @@ export function Block2() {
     <>
       <div className="block2">
         <Image.TransitionImg className={"transition-img"} />
+        <div className="trn-button"></div>
         <h2>block2</h2>
       </div>
     </>

@@ -3,6 +3,7 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 10;
   background-color: $brownColor;
   color: $textWhiteColor;
   font-weight: 300;
@@ -26,6 +27,8 @@
     @include fluid-text("padding-right", 123, -70);
     &.open {
       .header {
+        position: relative;
+        z-index: 10;
         &__logo-text {
           left: 40px;
           transition: all 1s ease 0s;
