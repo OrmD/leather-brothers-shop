@@ -1,7 +1,95 @@
 @use "./instruments" as *;
 .block2 {
   position: relative;
-  height: 100vh;
   width: 100%;
+  display: flex;
+  justify-content: center;
   background-color: $bodyColor;
+}
+.block2 {
+  &__wrapper {
+    margin-top: rem(120);
+    max-width: $maxWidthPage;
+  }
+  &__body {
+  }
+  &__container-img-text {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 15px 20px;
+  }
+
+  &__img {
+    grid-row: 1/3;
+    grid-column: 1/2;
+    position: relative;
+    z-index: 2;
+  }
+  &__img-title {
+    font-family: $fontPlayfairDisplay;
+    font-size: rem(35);
+    line-height: 47px;
+    color: $productTitColor;
+    align-self: end;
+    max-width: 580px;
+  }
+  &__img-desc {
+    @include st-desc-text;
+    color: $textDarkColor;
+    align-self: start;
+    max-width: 580px;
+  }
+  &__img-text {
+  }
+  &__container-btn-bags {
+    position: relative;
+    top: -100px;
+    left: 0;
+    z-index: 1;
+    height: 666px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    @include fluid-text("padding-right", 123, 10);
+    justify-content: center;
+    border-radius: 0px 346px 0px 0px;
+    background: $productTitColor;
+  }
+  &__about-us-bag01 {
+    position: absolute;
+    top: 175px;
+    left: -160px;
+  }
+  &__about-us-bag02 {
+    position: absolute;
+    top: 521px;
+    left: 1168px;
+  }
+  &__bags-descr {
+    @include st-desc-text;
+    color: $textWhiteColor;
+    width: 645px;
+    margin-bottom: 32px;
+  }
+  &__bags-text {
+  }
+  &__bags-title {
+    font-family: $fontPlayfairDisplay;
+    font-size: rem(35);
+    line-height: 47px;
+    color: $textWhiteColor;
+    margin-bottom: 16px;
+  }
+  &__button {
+    align-self: flex-start;
+    font-family: $fontMontserat;
+    font-weight: 700;
+    font-size: rem(16);
+    line-height: 20px;
+    text-transform: uppercase;
+    padding: 20px 32px;
+    border-radius: 11px;
+    background: rgb(255, 183, 3);
+  }
 }
