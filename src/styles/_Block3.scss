@@ -1,0 +1,117 @@
+@use "_instruments" as *;
+
+.categories {
+  position: relative;
+  z-index: 2;
+  padding-bottom: resizing(84, 20);
+  margin-top: resizing(-34, 0, 1440, 1024);
+  width: 100%;
+  color: $textWhiteColor;
+  background-color: $bodyColor;
+  @media (max-width: 1024px) {
+    position: static;
+    z-index: inherit;
+    padding-top: resizing(0, 50, 1024);
+  }
+  &__cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
+    @media (max-width: 1024px) {
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 768px) {
+      gap: resizing(20, 10, 768);
+    }
+    > *:nth-child(3) {
+      position: relative;
+      z-index: 2;
+      &::before {
+        content: "";
+        display: block;
+        z-index: -1;
+        position: absolute;
+        top: -36px;
+        right: -60px;
+        width: 105px;
+        height: 105px;
+        border-radius: 50%;
+        background-color: $yellowColor;
+      }
+    }
+    > *:nth-child(2) {
+      position: relative;
+      z-index: 3;
+    }
+    > *:nth-child(1) {
+      position: relative;
+      z-index: 2;
+      &::before {
+        content: "";
+        display: block;
+        z-index: -1;
+        position: absolute;
+        top: 154px;
+        left: -53px;
+        width: 105px;
+        height: 105px;
+        border-radius: 50%;
+        background-color: $yellowColor;
+      }
+    }
+  }
+  &__desc {
+    text-align: center;
+    @include st-desc-text;
+    color: $textDarkColor;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: resizing(32, 12);
+  }
+  &__title {
+    text-align: center;
+    @include st-title;
+    margin-bottom: resizing(16, 8);
+  }
+  &__wrapper {
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+}
+
+.card {
+  &__body {
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: resizing(360, 300, 1440, 1024); //360px;
+    height: resizing(412, 352, 1440, 1024); //412px;
+    padding-top: resizing(36, 18);
+    padding-left: resizing(24, 12);
+    border-radius: 22px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      transition: all 0.5s ease 0s;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px 2px #000211;
+    }
+  }
+  &__name {
+    font-family: $fontMontserat;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    text-transform: uppercase;
+  }
+  &__title {
+    font-family: $fontPlayfairDisplay;
+    font-style: italic;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 40px;
+  }
+}

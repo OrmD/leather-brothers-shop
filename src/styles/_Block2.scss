@@ -1,6 +1,7 @@
 @use "./instruments" as *;
 .block2 {
   position: relative;
+
   width: 100%;
   display: flex;
   justify-content: center;
@@ -82,7 +83,7 @@
   }
   &__container-btn-bags {
     position: relative;
-    @include fluid-text2("top", -200, -30);
+    @include fluid-text2("top", -200, 0);
     margin-top: 100px;
     left: 0;
     z-index: 1;
@@ -96,10 +97,15 @@
     justify-content: center;
     @include fluid-text("border-top-right-radius", 346, 60);
     background: $productTitColor;
+
     @media (max-width: 768px) {
       width: 100%;
       align-items: center;
-      height: 430px;
+      height: resizing(360, 400);
+    }
+    @media (max-width: 425px) {
+      height: auto;
+      padding: 7px;
     }
   }
   &__body-btn-bags {
@@ -124,16 +130,21 @@
     top: 521px;
     left: 1168px;
     @media (max-width: 1440px) {
-      top: 521px;
+      top: resizing(521, 300, 1440, 1024);
       left: auto;
-      right: 0;
+      right: -70px;
     }
     @media (max-width: 1024px) {
-      @include fluid-text2("top", 300, 330);
+      top: resizing(300, 270, 1024, 425);
       left: auto;
-      @include fluid-text("right", 60, -50);
+      right: resizing(60, -50);
+      // @include fluid-text("right", 60, -50);
     }
-    @media (max-width: 375px) {
+    @media (max-width: 768px) {
+      width: resizing(268, 198, 768, 425);
+      height: resizing(256, 186, 768, 425);
+    }
+    @media (max-width: 500px) {
       display: none;
     }
   }

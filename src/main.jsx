@@ -8,6 +8,7 @@ import { Products } from "./pages/Products.jsx";
 import { LabelSDS } from "./pages/LabelSDS.jsx";
 import { News } from "./pages/News.jsx";
 import { Contacts } from "./pages/Contats.jsx";
+import { Categories } from "./pages/Categories.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
@@ -18,6 +19,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/LabelSDS" element={<LabelSDS />} />
         <Route path="/News" element={<News />} />
         <Route path="/Contacts" element={<Contacts />} />
+        <Route path="/Categories" element={<Categories />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
