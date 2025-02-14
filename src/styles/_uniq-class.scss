@@ -72,3 +72,26 @@
     transform: translateY(-5px) translateX(-50%);
   }
 }
+
+.st-section {
+  padding-top: resizing(84, 40);
+  background-color: $bodyColor;
+  width: 100%;
+}
+.st-wrapper {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.st-title {
+  text-align: center;
+  @include st-title;
+  margin-bottom: resizing(16, 8);
+}
+.st-desc {
+  text-align: center;
+  @include st-desc-text;
+  color: $textDarkColor;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: resizing(32, 12);
+}

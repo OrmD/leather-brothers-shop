@@ -1,0 +1,26 @@
+@use "_instruments" as *;
+.Video {
+  &__player-wrapper {
+    position: relative;
+    width: calc(100% - 20px);
+    margin: 10px;
+    padding-top: 56.25%;
+    box-sizing: border-box;
+  }
+  &__player-body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: resizing(44, 24);
+  }
+  &__play-img {
+  }
+  &__play-icon {
+    position: absolute;
+    z-index: 2; // Впевнись, що іконка поверх всього
+    cursor: pointer;
+  }
+}

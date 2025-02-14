@@ -53,7 +53,7 @@
           }
         }
         &__list {
-          gap: 10px;
+          gap: resizing(20, 10, 768);
         }
       }
     }

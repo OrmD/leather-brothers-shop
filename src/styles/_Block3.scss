@@ -1,13 +1,10 @@
 @use "_instruments" as *;
 
-.categories {
+.Categories {
   position: relative;
   z-index: 2;
-  padding-bottom: resizing(84, 20);
   margin-top: resizing(-34, 0, 1440, 1024);
-  width: 100%;
   color: $textWhiteColor;
-  background-color: $bodyColor;
   @media (max-width: 1024px) {
     position: static;
     z-index: inherit;
@@ -63,21 +60,10 @@
     }
   }
   &__desc {
-    text-align: center;
-    @include st-desc-text;
-    color: $textDarkColor;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: resizing(32, 12);
   }
   &__title {
-    text-align: center;
-    @include st-title;
-    margin-bottom: resizing(16, 8);
   }
   &__wrapper {
-    max-width: 1120px;
-    margin: 0 auto;
   }
 }
 
