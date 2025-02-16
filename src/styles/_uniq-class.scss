@@ -95,3 +95,72 @@
   margin-right: 5px;
   margin-bottom: resizing(32, 12);
 }
+
+.arrow-prev {
+  position: absolute;
+  right: auto;
+  left: -41px;
+  z-index: 2;
+  transform: rotate(180deg);
+  &:hover {
+  }
+}
+.arrow {
+  position: absolute;
+  top: 313px;
+  right: -41px;
+  z-index: 999;
+  margin: 2px;
+  cursor: pointer;
+  color: $yellowColor; // ✅ Використовуємо color для fill через currentColor
+  border-radius: $borderRad;
+  transition: all 0.2s ease 0s;
+  path {
+    fill: $titleColor;
+  }
+  &:hover {
+    color: rgb(255, 241, 204);
+    box-shadow: 0 0 0 1.3px $titleColor;
+
+    path {
+      fill: $titleColor;
+    }
+    rect {
+      fill: currentColor; // ✅ Тепер fill змінюється разом з color
+      transition: all 0.2s ease 0s;
+    }
+  }
+  &:active {
+    color: $bodyColor; // ✅ Змінюємо color, а не fill
+    box-shadow: 0 0 0 1px $yellowColor;
+
+    rect {
+      fill: currentColor; // ✅ Тепер fill змінюється разом з color
+      transition: all 0.2s ease 0s;
+    }
+    path {
+      fill: $yellowColor;
+    }
+  }
+}
+.decor {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 4;
+  width: 356px;
+  height: 356px;
+  border-radius: 50%;
+  background: linear-gradient(213.37deg, rgba(255, 255, 255, 0.2) 11.839%, rgba(255, 255, 255, 0) 47.119%);
+  transform: rotate(175deg);
+}
+.decor-2 {
+  position: absolute;
+  bottom: -290px;
+  left: -80px;
+  z-index: 4;
+  width: 568px;
+  height: 568px;
+  border-radius: 50%;
+  background: linear-gradient(213.37deg, rgba(255, 255, 255, 0.2) 11.839%, rgba(255, 255, 255, 0) 47.119%);
+}

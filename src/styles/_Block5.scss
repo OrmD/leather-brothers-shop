@@ -1,0 +1,68 @@
+@use "_instruments" as *;
+.Selling {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 3;
+    top: -300px;
+    left: 0;
+    width: 100%; //1366
+    height: 1065px; //965
+    clip-path: polygon(50% 0%, 100% 38%, 100% 100%, 0% 100%, 0% 38%);
+    background-color: $brownColor;
+    // border-left: 450px solid transparent;
+    // border-right: 450px solid transparent;
+    // border-bottom: 366px solid $brownColor;
+  }
+  &__wrapper {
+    position: relative;
+    z-index: 4;
+  }
+  &__desc {
+    color: $textWhiteColor;
+  }
+  .st-title {
+    color: $textWhiteColor;
+  }
+}
+
+.product-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 265px;
+  border-radius: $borderRad;
+  border: 1px solid rgb(255, 230, 167);
+  background: rgb(255, 241, 204);
+  padding: resizing(30, 10);
+
+  &:hover {
+    transition: all 0.3s ease 0s;
+    position: relative;
+    z-index: 5;
+    border: 1px solid $yellowColor;
+    box-shadow: 0 0 5px 3px #47454191;
+  }
+  &__desc {
+    font-family: $fontPopins;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+  }
+  &__img {
+    margin-bottom: resizing(32, 20);
+  }
+  &__title {
+    font-family: $fontPlayfairDisplay;
+    font-style: italic;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    color: $productTitColor;
+
+    margin-bottom: resizing(8, 4);
+  }
+}
