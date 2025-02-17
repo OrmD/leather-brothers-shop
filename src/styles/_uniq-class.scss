@@ -99,22 +99,30 @@
 .arrow-prev {
   position: absolute;
   right: auto;
-  left: -41px;
+  left: resizing(-41, 10, 1440, 1024);
   z-index: 2;
   transform: rotate(180deg);
-  &:hover {
+  @media (max-width: 425px) {
+    left: 5px;
   }
 }
 .arrow {
   position: absolute;
-  top: 313px;
-  right: -41px;
+
+  top: resizing(313, 330);
+  top: resizing(313, 280, 1440, 1024);
+  top: resizing(280, 260, 850, 425);
+  top: resizing(280, 340, 425, 320);
+  right: resizing(-41, 10, 1440, 1024);
   z-index: 999;
   margin: 2px;
   cursor: pointer;
   color: $yellowColor; // ✅ Використовуємо color для fill через currentColor
   border-radius: $borderRad;
   transition: all 0.2s ease 0s;
+  @media (max-width: 425px) {
+    right: 5px;
+  }
   path {
     fill: $titleColor;
   }
@@ -130,7 +138,7 @@
       transition: all 0.2s ease 0s;
     }
   }
-  &:active {
+  /* &:focus {
     color: $bodyColor; // ✅ Змінюємо color, а не fill
     box-shadow: 0 0 0 1px $yellowColor;
 
@@ -141,12 +149,12 @@
     path {
       fill: $yellowColor;
     }
-  }
+  }*/
 }
 .decor {
   position: absolute;
   top: 0;
-  right: 0;
+  right: resizing(0, -150);
   z-index: 4;
   width: 356px;
   height: 356px;
@@ -157,7 +165,7 @@
 .decor-2 {
   position: absolute;
   bottom: -290px;
-  left: -80px;
+  left: resizing(-80, -230);
   z-index: 4;
   width: 568px;
   height: 568px;

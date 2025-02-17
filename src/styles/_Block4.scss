@@ -23,7 +23,9 @@
   }
   &__play-icon {
     position: absolute;
-    z-index: 2; // Впевнись, що іконка поверх всього
+    z-index: 5; // Впевнись, що іконка поверх всього
     cursor: pointer;
+    width: 85px;
+    height: 85px;
   }
 }

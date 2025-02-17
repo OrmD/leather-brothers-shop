@@ -4,9 +4,12 @@ import { useEffect, useState } from "react";
 import { HeaderItem } from "./HeaderItem";
 
 function HeaderComponent() {
+  const [searchOpen, setSearchOpen] = useState(false);
   const [open, setOpen] = useState();
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 769);
-
+  const toggleState = () => {
+    setSearchOpen((prev) => !prev);
+  };
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth < 768);
@@ -33,7 +36,10 @@ function HeaderComponent() {
             <Image.HamburgerMenu className={"header__menu-icon"} />
           </button>
         )}
-        <Image.SearchIcon className={"header__search-icon"} />
+        <Image.SearchIcon className={"header__search-icon"} onToggle={toggleState} />
+      </div>
+      <div className={`header__input ${searchOpen ? "open" : ""}`}>
+        <input type="text" name="search" />
       </div>
     </header>
   );

@@ -21,7 +21,18 @@ export function Block5() {
       item2={<div className="decor-2"></div>}
     >
       <div className="Selling__product-item">
-        <Swiper spaceBetween={20} slidesPerView={4} onSlideChange={() => console.log("slide change")} onSwiper={(swiper) => (swiperRef.current = swiper)}>
+        <Swiper
+          spaceBetween={10}
+          slidesPerView={1}
+          loop={true}
+          watchOverflow={true}
+          breakpoints={{
+            560: { slidesPerView: 2 },
+            850: { slidesPerView: 3, spaceBetween: 15 },
+            1100: { slidesPerView: 4, spaceBetween: 20 },
+          }}
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+        >
           {productData.map((el, index) => {
             return (
               <SwiperSlide key={index}>

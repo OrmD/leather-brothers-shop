@@ -1,3 +1,4 @@
+import { Image } from "../Router";
 import { Wrapper } from "../wrapper-blocks/Wrapper";
 
 export function Block6() {
@@ -11,8 +12,7 @@ export function Block6() {
         descValue:
           "   Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s....",
       }}
-    >
-      <p>Clients-say</p>
-    </Wrapper>
+      item={<Image.TransitionImg className={"transition-img"} />}
+    ></Wrapper>
   );
 }
