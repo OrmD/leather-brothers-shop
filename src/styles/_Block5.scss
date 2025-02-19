@@ -1,5 +1,6 @@
 @use "_instruments" as *;
 .Selling {
+  padding-bottom: resizing(84, 40);
   position: relative;
   &::after {
     content: "";

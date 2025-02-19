@@ -14,3 +14,5 @@ Currently, two official plugins are available:
 - Роутинг реалізовано за допомого react-router
 - Анімації зроблено з допомогою бібліотеки framer-motion та css
 - Відео-плеєр виконано з допомогою бібліотеки react-player
+- gsap, swiper.
+- grid, flex.
