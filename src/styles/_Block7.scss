@@ -1,0 +1,113 @@
+@use "_instruments" as *;
+
+.Articles {
+  padding-bottom: resizing(80, 40);
+  &__container-cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: resizing(20, 10);
+  }
+}
+
+.article-card {
+  position: relative;
+  cursor: pointer;
+  min-height: 500px; // ✅ Фіксована висота, щоб не було змін
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  &:hover {
+    .article-card__face {
+      &.face1 {
+        background-color: $yellowColor;
+        transform: translateY(0);
+        box-shadow: none;
+        .article-card__content {
+          opacity: 1;
+        }
+      }
+      &.face2 {
+        transform: translateY(-20px);
+        height: 300px;
+        border-radius: 0 0 22px 22px;
+        opacity: 1;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+        .article-card__text {
+          margin-bottom: resizing(36, 25);
+        }
+      }
+    }
+  }
+  &__number {
+    display: inline-block;
+    color: rgba(67, 40, 24, 0.3);
+    font-size: resizing(94, 85);
+    font-weight: 800;
+    line-height: resizing(74, 65);
+    text-transform: capitalize;
+    margin-bottom: resizing(36, 25);
+  }
+  &__title {
+    color: $titleColor;
+    font-size: resizing(24, 20);
+    font-weight: 700;
+    line-height: resizing(30, 25);
+    text-transform: capitalize;
+    margin-bottom: resizing(14, 10);
+  }
+  &__text {
+    color: $textDarkColor;
+    font-size: rem(16);
+    font-weight: 400;
+    line-height: resizing(26, 20);
+  }
+  &__button {
+    color: rgb(111, 29, 27);
+    font-size: rem(16);
+    font-weight: 800;
+    line-height: rem(20);
+    letter-spacing: calc(0.3 * 1em);
+    margin-left: 8px;
+    text-transform: uppercase;
+  }
+
+  // класи для hover ефекту
+  &__content {
+    opacity: 0.7;
+    transition: 0.5s;
+  }
+  &__face {
+    width: 360px;
+    transition: 0.5s;
+    max-width: 360px;
+    padding: resizing(46, 35) resizing(27, 16);
+    box-sizing: border-box;
+    border-radius: $borderRad;
+  }
+}
+.face1 {
+  border: 1px solid rgb(255, 230, 167);
+  background: $productBlockColor;
+  height: 200px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  transform: translateY(100px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+.face2 {
+  opacity: 0;
+  position: absolute; // ✅ Фіксуємо позицію, щоб не змінювала висоту
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: $bodyColor;
+  height: 200px;
+  transform: translateY(-100px);
+  border-radius: $borderRad;
+}

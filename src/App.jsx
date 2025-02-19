@@ -11,7 +11,6 @@ import { Footer } from "./components/Footer/Footer";
 function App() {
   return (
     <>
-      <HeaderComponent />
       <Block1 />
       <Block2 />
       <Block3 />
