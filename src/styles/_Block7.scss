@@ -8,38 +8,27 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: resizing(20, 10);
+    margin: 0 10px;
   }
 }
 
 .article-card {
   position: relative;
-  cursor: pointer;
-  min-height: 500px; // ✅ Фіксована висота, щоб не було змін
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  box-sizing: border-box;
+  border: 1px solid rgb(255, 230, 167);
+  border-radius: $borderRad;
+  background: $productBlockColor;
+  max-width: 360px;
+  padding: resizing(46, 30) resizing(27, 15);
+  transition: all 0.4s ease 0s;
   &:hover {
-    .article-card__face {
-      &.face1 {
-        background-color: $yellowColor;
-        transform: translateY(0);
-        box-shadow: none;
-        .article-card__content {
-          opacity: 1;
-        }
-      }
-      &.face2 {
-        transform: translateY(-20px);
-        height: 300px;
-        border-radius: 0 0 22px 22px;
-        opacity: 1;
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-        .article-card__text {
-          margin-bottom: resizing(36, 25);
-        }
-      }
+    transition: all 0.3s ease 0s;
+    transform: scale(1.05);
+    @media (max-width: 768px) {
+      transform: scale(1);
     }
   }
+
   &__number {
     display: inline-block;
     color: rgba(67, 40, 24, 0.9);
@@ -62,6 +51,8 @@
     font-size: rem(16);
     font-weight: 400;
     line-height: resizing(26, 20);
+    max-width: 304px;
+    margin-bottom: resizing(36, 25);
   }
   &__button {
     color: rgb(111, 29, 27);
@@ -71,43 +62,69 @@
     letter-spacing: calc(0.3 * 1em);
     margin-left: 8px;
     text-transform: uppercase;
-  }
-
-  // класи для hover ефекту
-  &__content {
-    opacity: 0.7;
-    transition: 0.5s;
-  }
-  &__face {
-    width: 360px;
-    transition: 0.5s;
-    max-width: 360px;
-    padding: resizing(46, 35) resizing(27, 16);
-    box-sizing: border-box;
-    border-radius: $borderRad;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      transition: all 0.3s ease 0s;
+      letter-spacing: calc(0.2 * 1em);
+      font-size: rem(17);
+      color: rgb(139, 22, 20);
+    }
   }
 }
-.face1 {
-  border: 1px solid rgb(255, 230, 167);
-  background: $productBlockColor;
-  height: 200px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  z-index: 1;
-  transform: translateY(100px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+.btn-close-modal {
+  position: absolute;
+  z-index: 3;
+  top: 5px;
+  right: 5px;
+  width: 30px;
+  height: 30px;
+  &:hover {
+    &::after,
+    &::before {
+      height: 3px;
+    }
+  }
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 20px;
+    right: -10px;
+    width: 30px;
+    height: 2px;
+    background-color: rgba(67, 40, 24, 0.9);
+  }
+  &::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  &::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
 }
-.face2 {
-  opacity: 0;
-  position: absolute; // ✅ Фіксуємо позицію, щоб не змінювала висоту
+.back-shadow {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  position: relative;
-  background-color: $bodyColor;
-  height: 200px;
-  transform: translateY(-100px);
-  border-radius: $borderRad;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  z-index: 1000;
+  &.show {
+    opacity: 1;
+    visibility: visible;
+    overflow-y: hidden;
+  }
+  .article-card {
+    margin: 0 10px;
+    &:hover {
+      transform: scale(1);
+    }
+  }
 }
