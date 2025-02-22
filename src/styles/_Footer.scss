@@ -112,6 +112,10 @@
     row-gap: 10px;
     column-gap: 25px;
   }
+  @media (max-width: 425px) {
+    flex-direction: column;
+    align-items: center;
+  }
   &__block-social {
     @media (max-width: 768px) {
       display: flex;
@@ -144,20 +148,45 @@
     }
   }
   &__block-pages {
-    @media (max-width: 768px) {
-      text-align: center;
-    }
-    @media (max-width: 375px) {
+    @media (max-width: 425px) {
       width: 90%;
       margin: 0 auto;
       padding-top: 10px;
       border-top: 1px solid rgba(255, 255, 255, 0.2);
+      .floor-2__list {
+        transition: max-height 1s ease, opacity 0.8s ease;
+        max-height: 200px;
+      }
+    }
+    @media (max-width: 768px) {
+      text-align: center;
     }
   }
   &__list {
-    max-width: 250px;
-    @media (max-width: 375px) {
+    @media (max-width: 425px) {
+      max-width: 250px;
       margin: 0 auto;
+      transition: max-height 1s ease;
+      & :nth-child(1) {
+        opacity: 1;
+        transition: opacity 0.3s ease 0.1s;
+      }
+      & :nth-child(2) {
+        opacity: 1;
+        transition: opacity 0.4s ease 0.2s;
+      }
+      & :nth-child(3) {
+        opacity: 1;
+        transition: opacity 0.6s ease 0.3s;
+      }
+      & :nth-child(4) {
+        opacity: 1;
+        transition: opacity 0.8s ease 0.4s;
+      }
+      & :nth-child(5) {
+        opacity: 1;
+        transition: opacity 0.9s ease 0.5s;
+      }
     }
   }
   &__list-element {
@@ -165,6 +194,7 @@
     line-height: resizing(30, 25);
     margin-bottom: resizing(20, 10);
     transition: opacity 0.4s ease-out 0s;
+
     &:hover {
       cursor: pointer;
       transition: opacity 0.4s ease 0s;
@@ -175,11 +205,15 @@
     @media (max-width: 768px) {
       text-align: center;
     }
-    @media (max-width: 375px) {
+    @media (max-width: 425px) {
       width: 90%;
       margin: 0 auto;
       padding-top: 10px;
       border-top: 1px solid rgba(255, 255, 255, 0.2);
+      .floor-2__list {
+        transition: max-height 1s ease, opacity 0.8s ease;
+        max-height: 200px;
+      }
     }
   }
   &__title {
@@ -187,16 +221,42 @@
     font-weight: 600;
     line-height: resizing(24, 20);
     margin-bottom: resizing(27, 20);
+    @media (max-width: 425px) {
+      position: relative;
+      &::after,
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        top: 8px;
+        right: 10px;
+        width: 15px;
+        height: 2px;
+        background-color: rgba(255, 255, 255, 0.8);
+        transition: 0.5s ease;
+      }
+      &::before {
+        right: 20px;
+        transform: rotate(45deg);
+      }
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
   }
   &__block-contact-info {
     @media (max-width: 768px) {
       text-align: center;
     }
-    @media (max-width: 375px) {
+    @media (max-width: 425px) {
       width: 90%;
       margin: 0 auto;
       padding-top: 10px;
       border-top: 1px solid rgba(255, 255, 255, 0.2);
+      .floor-2__list {
+        transition: max-height 1s ease, opacity 0.8s ease;
+        max-height: 200px;
+      }
     }
     .floor-2__list-element {
       &:hover {
@@ -206,11 +266,12 @@
     }
   }
 }
+
 .floor-3 {
   width: 100%;
 
   &__block {
-    height: resizing(89, 50);
+    height: resizing(89, 60);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -220,5 +281,45 @@
   }
   &__text {
     text-align: center;
+  }
+}
+
+.menu.f-close {
+  @media (max-width: 425px) {
+    .floor-2__list {
+      max-height: 0px;
+      transition: max-height 1s ease;
+      & :nth-child(1) {
+        opacity: 0;
+        transition: opacity 0.9s ease;
+      }
+      & :nth-child(2) {
+        opacity: 0;
+        transition: opacity 0.8s ease;
+      }
+      & :nth-child(3) {
+        opacity: 0;
+        transition: opacity 0.6s ease;
+      }
+      & :nth-child(4) {
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+      & :nth-child(5) {
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+    }
+    .floor-2__title {
+      &::before {
+        transition: 0.5s ease;
+        right: 20px;
+        transform: rotate(-45deg);
+      }
+      &::after {
+        transition: 0.5s ease;
+        transform: rotate(45deg);
+      }
+    }
   }
 }

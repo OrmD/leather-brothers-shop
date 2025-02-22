@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { socialIcon } from "../../data/footer-links.js";
 import { pagesLinks } from "../../data/footer-links.js";
 import { contactInfo } from "../../data/footer-links.js";
@@ -12,6 +13,9 @@ const iconMap = {
 };
 
 export function Floor2(params) {
+  const [close, setClose] = useState(false);
+  const [closePolice, setClosePolice] = useState(false);
+  const [closeContact, setCloseContact] = useState(false);
   return (
     <div className="floor-2">
       <div className="floor-2__block-social">
@@ -31,8 +35,10 @@ export function Floor2(params) {
           })}
         </div>
       </div>
-      <div className="floor-2__block-pages">
-        <h6 className="floor-2__title">Pages</h6>
+      <div className={`floor-2__block-pages menu ${close ? "f-close" : ""}`}>
+        <h6 className="floor-2__title" onClick={() => setClose(!close)}>
+          Pages
+        </h6>
         <ul className="floor-2__list">
           {pagesLinks.map((el, index) => {
             return (
@@ -43,8 +49,10 @@ export function Floor2(params) {
           })}
         </ul>
       </div>
-      <div className="floor-2__block-policies">
-        <h6 className="floor-2__title">Policies</h6>
+      <div className={`floor-2__block-policies menu ${closePolice ? "f-close" : ""}`}>
+        <h6 className="floor-2__title" onClick={() => setClosePolice(!closePolice)}>
+          Policies
+        </h6>
         <ul className="floor-2__list">
           {policiesLinks.map((el, index) => {
             return (
@@ -55,8 +63,10 @@ export function Floor2(params) {
           })}
         </ul>
       </div>
-      <div className="floor-2__block-contact-info">
-        <h6 className="floor-2__title">CONTACT INFO</h6>
+      <div className={`floor-2__block-contact-info menu ${closeContact ? "f-close" : ""}`}>
+        <h6 className="floor-2__title" onClick={() => setCloseContact(!closeContact)}>
+          CONTACT INFO
+        </h6>
         <ul className="floor-2__list">
           <li className="floor-2__list-element">
             Address:
