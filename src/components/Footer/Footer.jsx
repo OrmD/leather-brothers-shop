@@ -7,7 +7,7 @@ export function Footer() {
     <>
       <footer className="footer">
         <div className="footer__wrapper">
-          <Image.FooterImg />
+          <Image.FooterImg className="footer__img" />
           <Floor1 />
           <Floor2 />
           <Floor3 />

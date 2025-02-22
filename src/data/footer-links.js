@@ -52,14 +52,7 @@ export const policiesLinks = [
 		text: "FQ'S",
 		link: ""
 	},
-	{
-		text: "Company Overview",
-		link: ""
-	},
-	{
-		text: "NEWS",
-		link: ""
-	},
+
 ]
 
 export const contactInfo = {

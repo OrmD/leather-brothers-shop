@@ -13,14 +13,14 @@ const iconMap = {
 
 export function Floor2(params) {
   return (
-    <div className="2-floor">
-      <div className="2-floor__block-social">
-        <Image.LogoText />
-        <p className="2-floor__text">
+    <div className="floor-2">
+      <div className="floor-2__block-social">
+        <Image.LogoText className="floor-2__logo" />
+        <p className="floor-2__text">
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
           unknown.
         </p>
-        <div className="2-floor__icons">
+        <div className="floor-2__icons">
           {socialIcon.map((el, index) => {
             const IconComponent = iconMap[el.icon];
             return (
@@ -31,36 +31,45 @@ export function Floor2(params) {
           })}
         </div>
       </div>
-      <div className="2-floor__block-pages">
-        <h6 className="2-floor__title">Pages</h6>
-        <ul className="2-floor__list">
+      <div className="floor-2__block-pages">
+        <h6 className="floor-2__title">Pages</h6>
+        <ul className="floor-2__list">
           {pagesLinks.map((el, index) => {
             return (
-              <li className="2-floor__list-element" key={index}>
+              <li className="floor-2__list-element" key={index}>
                 {el.text}
               </li>
             );
           })}
         </ul>
       </div>
-      <div className="2-floor__block-policies">
-        <h6 className="2-floor__title">Pages</h6>
-        <ul className="2-floor__list">
+      <div className="floor-2__block-policies">
+        <h6 className="floor-2__title">Policies</h6>
+        <ul className="floor-2__list">
           {policiesLinks.map((el, index) => {
             return (
-              <li className="2-floor__list-element" key={index}>
+              <li className="floor-2__list-element" key={index}>
                 {el.text}
               </li>
             );
           })}
         </ul>
       </div>
-      <div className="2-floor__block-contact-info">
-        <h6 className="2-floor__title">Pages</h6>
-        <ul className="2-floor__list">
-          <li className="2-floor__list-element">{contactInfo.address}</li>
-          <li className="2-floor__list-element">{contactInfo.email}</li>
-          <li className="2-floor__list-element">{contactInfo.numberPhone}</li>
+      <div className="floor-2__block-contact-info">
+        <h6 className="floor-2__title">CONTACT INFO</h6>
+        <ul className="floor-2__list">
+          <li className="floor-2__list-element">
+            Address:
+            <p>{contactInfo.address}</p>
+          </li>
+          <li className="floor-2__list-element">
+            Email:
+            <p>{contactInfo.email}</p>
+          </li>
+          <li className="floor-2__list-element">
+            Customer Support
+            <p>{contactInfo.numberPhone}</p>
+          </li>
         </ul>
       </div>
     </div>
