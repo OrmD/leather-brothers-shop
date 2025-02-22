@@ -10,8 +10,10 @@ export function Floor1(params) {
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
           unknown printer took a galley of type and scrambled it to make a type specimen book.{" "}
         </p>
-        <input className="floor-1__input" placeholder="Input your emaill address in here"></input>
-        <Image.ArrowButton />
+        <div className="floor-1__container-inp">
+          <input className="floor-1__input" placeholder="Input your emaill address in here"></input>
+          <Image.ArrowButton className="floor-1__button" />
+        </div>
       </div>
     </div>
   );

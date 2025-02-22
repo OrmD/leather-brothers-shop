@@ -33,6 +33,13 @@
     height: 140px;
     width: 1920px;
   }
+  @media (min-width: 1440px) {
+    width: 100%;
+    top: -70px;
+    & img {
+      width: 100%;
+    }
+  }
 }
 
 .trn-button {

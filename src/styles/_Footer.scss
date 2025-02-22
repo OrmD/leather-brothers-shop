@@ -1,48 +1,104 @@
 @use "_instruments" as *;
 .footer {
-  position: relative;
   color: $textWhiteColor;
   background-color: $footerColor;
   width: 100%;
   &__wrapper {
+    position: relative;
     max-width: $maxWidthPage;
     margin: 0 auto;
     padding: 0 10px;
   }
   &__img {
     position: absolute;
-    top: -92px;
-    left: -58px;
+    top: resizing(-92, -50, 1024, 768);
+    left: resizing(-58, -208, 1024, 768);
+    width: resizing(613, 550, 1024, 768);
+    @media (max-width: 768px) {
+      width: 400px;
+      left: -100px;
+    }
   }
 }
 .floor-1 {
+  position: relative;
+  z-index: 2;
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  padding: resizing(75, 20) resizing(123, 0) resizing(75, 20) 0;
+  padding: resizing(75, 40) resizing(123, 0, 1366, 768) resizing(75, 20, 1366, 768) 0;
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
   &__block {
     max-width: 550px;
   }
   &__title {
+    margin: 0 10px;
     font-weight: 300;
     font-size: resizing(64, 50);
     line-height: resizing(74, 60);
     margin-bottom: resizing(30, 20);
+    padding: 4px;
+    border-radius: $borderRad;
+    background-color: rgba(26, 14, 7, 0.863);
+    backdrop-filter: blur(6px);
     & strong {
       font-weight: 700;
+    }
+    @media (max-width: 425px) {
+      text-align: center;
     }
   }
   &__text {
     font-size: rem(16);
     line-height: resizing(30, 25);
     margin-bottom: resizing(40, 30);
+    padding: 8px;
+    border-radius: $borderRad;
+    background-color: rgba(26, 14, 7, 0.863);
+    backdrop-filter: blur(6px);
+    @media (max-width: 425px) {
+      text-align: center;
+    }
+  }
+  &__container-inp {
+    position: relative;
   }
   &__input {
-    padding: resizing(24, 15);
+    padding: 25px;
+    font-size: 20px;
     width: 550px;
     border-radius: $borderRad;
     backdrop-filter: blur(6px);
+    color: $textWhiteColor;
     background: rgba(255, 255, 255, 0.2);
+    border: none;
+    line-height: 26px;
+    @media (max-width: 560px) {
+      width: 100%;
+      padding-left: 10px;
+    }
+  }
+  &__button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: $yellowColor;
+    border-radius: $borderRad;
+    & path {
+      color: $productTitColor;
+    }
+    &:hover {
+      cursor: pointer;
+      opacity: 0.9;
+      box-shadow: 0 0 0 2px $brownColor;
+      transition: all 0.3s ease-in 0s;
+      & path {
+        transition: all 0.3s ease-in 0s;
+        color: $textWhiteColor;
+      }
+    }
   }
 }
 .floor-2 {
@@ -52,38 +108,79 @@
   gap: 5px;
   @media (max-width: 768px) {
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    row-gap: 10px;
+    column-gap: 25px;
   }
   &__block-social {
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
   }
   &__logo {
-    height: resizing(58, 35);
+    height: resizing(58, 40);
     width: 190px;
   }
   &__text {
     font-size: rem(16);
     line-height: resizing(30, 25);
     max-width: 360px;
-    margin-bottom: resizing(55, 30);
+    margin-bottom: resizing(55, 20);
   }
   &__icons {
     display: flex;
     gap: resizing(24, 16);
     & a {
       display: block;
+      transition: opacity 0.4s ease-out 0s;
+      &:hover {
+        cursor: pointer;
+        transition: opacity 0.4s ease 0s;
+        opacity: 0.6;
+      }
     }
   }
   &__block-pages {
+    @media (max-width: 768px) {
+      text-align: center;
+    }
+    @media (max-width: 375px) {
+      width: 90%;
+      margin: 0 auto;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
   }
   &__list {
     max-width: 250px;
+    @media (max-width: 375px) {
+      margin: 0 auto;
+    }
   }
   &__list-element {
     font-size: rem(16);
     line-height: resizing(30, 25);
     margin-bottom: resizing(20, 10);
+    transition: opacity 0.4s ease-out 0s;
+    &:hover {
+      cursor: pointer;
+      transition: opacity 0.4s ease 0s;
+      opacity: 0.6;
+    }
   }
   &__block-policies {
+    @media (max-width: 768px) {
+      text-align: center;
+    }
+    @media (max-width: 375px) {
+      width: 90%;
+      margin: 0 auto;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
   }
   &__title {
     font-size: resizing(20, 18);
@@ -92,6 +189,21 @@
     margin-bottom: resizing(27, 20);
   }
   &__block-contact-info {
+    @media (max-width: 768px) {
+      text-align: center;
+    }
+    @media (max-width: 375px) {
+      width: 90%;
+      margin: 0 auto;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .floor-2__list-element {
+      &:hover {
+        cursor: auto;
+        opacity: 1;
+      }
+    }
   }
 }
 .floor-3 {
@@ -107,5 +219,6 @@
     border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
   &__text {
+    text-align: center;
   }
 }
