@@ -178,3 +178,55 @@
   border-radius: 50%;
   background: linear-gradient(213.37deg, rgba(255, 255, 255, 0.2) 11.839%, rgba(255, 255, 255, 0) 47.119%);
 }
+
+.f-modal {
+  position: absolute;
+  top: -170%;
+  left: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__block {
+    border-radius: $borderRad;
+    text-align: center;
+    width: 410px;
+    padding: 30px 20px;
+    color: $textDarkColor;
+    border: 1.5px solid $footerColor;
+    background: $bodyColor;
+  }
+  &__error {
+    border-radius: $borderRad;
+    text-align: center;
+    width: 400px;
+    padding: 30px 20px;
+    color: $bodyColor;
+    border: 1.5px solid $bodyColor;
+    background-color: rgb(204, 72, 72);
+  }
+  &__btn {
+    position: relative;
+    top: -10px;
+    right: 40px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      top: 9px;
+      right: 0;
+      width: 20px;
+      height: 2px;
+      background-color: rgba(67, 40, 24, 0.9);
+    }
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+}
