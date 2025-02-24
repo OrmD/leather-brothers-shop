@@ -4,6 +4,7 @@ import { pagesLinks } from "../../data/footer-links.js";
 import { contactInfo } from "../../data/footer-links.js";
 import { policiesLinks } from "../../data/footer-links.js";
 import { Image } from "../Router";
+import { Link } from "react-router";
 
 const iconMap = {
   Facebook: Image.Facebook,
@@ -43,7 +44,7 @@ export function Floor2(params) {
           {pagesLinks.map((el, index) => {
             return (
               <li className="floor-2__list-element" key={index}>
-                {el.text}
+                <Link to={el.link}>{el.text}</Link>
               </li>
             );
           })}

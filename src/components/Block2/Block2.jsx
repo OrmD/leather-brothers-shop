@@ -3,6 +3,7 @@ import { Image } from "../Router";
 import { gsap } from "gsap";
 import { useEffect, useRef, useState } from "react";
 import ScrollToPlugin from "gsap/ScrollToPlugin";
+import { Link } from "react-router";
 
 const imgAnimation = {
   hidden: { x: -100, opacity: 0 },
@@ -21,9 +22,7 @@ const imgAnimation1 = {
   }),
 };
 export function Block2() {
-  gsap.registerPlugin(ScrollToPlugin);
   const blockRef = useRef(null);
-  const scrollTo = (target) => gsap.to(window, { duration: 1, scrollTo: target, ease: "elastic" });
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
@@ -31,6 +30,10 @@ export function Block2() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  gsap.registerPlugin(ScrollToPlugin);
+  const scrollTo = (target) => gsap.to(window, { duration: 1, scrollTo: target, ease: "elastic" });
+
   return (
     <motion.section initial="hidden" whileInView="visible" viewport={{ amount: 0.3, once: true }} className="block2">
       <Image.TransitionImg className={"transition-img"} />
@@ -66,9 +69,9 @@ export function Block2() {
                   into electronic typesetting, remaining essentially unchanged...
                 </p>
               </div>
-              <button type="button" className="block2__button">
+              <Link to={"/Products"} type="button" className="block2__button">
                 Family pack
-              </button>
+              </Link>
             </div>
             <Image.MAboutUsBag02 custom={0.2} variants={imgAnimation1} className="block2__about-us-bag02" />
           </motion.div>

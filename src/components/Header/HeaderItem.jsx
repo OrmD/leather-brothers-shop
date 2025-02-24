@@ -1,13 +1,11 @@
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 
 export function HeaderItem({ link, text }) {
   return (
-    <li
-      className={`header__item ${location.pathname === link ? "active" : ""}`}
-    >
-      <Link className="link" to={link}>
+    <li className={`header__item `}>
+      <NavLink className="link" to={link}>
         {text}
-      </Link>
+      </NavLink>
     </li>
   );
 }

@@ -19,23 +19,23 @@ export const socialIcon = [
 export const pagesLinks = [
 	{
 		text: "Blogs",
-		link: ""
+		link: "/Blogs"
 	},
 	{
 		text: "Our Stories",
-		link: ""
+		link: "/Stories"
 	},
 	{
 		text: "Mission / Vision",
-		link: ""
+		link: "/Mission"
 	},
 	{
 		text: "Company Overview",
-		link: ""
+		link: "/AboutUs"
 	},
 	{
 		text: "NEWS",
-		link: ""
+		link: "/News"
 	},
 ]
 
