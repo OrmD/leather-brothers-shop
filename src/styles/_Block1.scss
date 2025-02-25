@@ -23,9 +23,9 @@
   }
   &__body {
     color: $textWhiteColor;
-    @include fluid-text("padding-left", 103, 10);
+    padding-left: resizing(103, 10);
     padding-right: 10px;
-    @include fluid-text("padding-top", 210, 80);
+    padding-top: resizing(210, 80);
   }
   &__hiddens {
     overflow: hidden;
@@ -33,9 +33,8 @@
 
   &__title {
     font-family: $fontPlayfairDisplay;
-    @include fluid-text("font-size", 60, 50);
-    line-height: rem(80);
-    @include fluid-text("line-height", 80, 60);
+    font-size: resizing(60, 50);
+    line-height: resizing(80, 60);
     max-width: rem(550);
     position: relative;
     opacity: 0;
@@ -53,7 +52,7 @@
   }
 
   &__sub-title {
-    @include fluid-text("margin-top", 20, 10);
+    margin-top: resizing(20, 10);
     font-size: rem(15);
     line-height: rem(26);
     max-width: rem(550);

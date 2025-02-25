@@ -1,7 +1,6 @@
 @use "./instruments" as *;
 .block2 {
   position: relative;
-
   width: 100%;
   display: flex;
   justify-content: center;
@@ -9,7 +8,7 @@
 }
 .block2 {
   &__wrapper {
-    @include fluid-text("margin-top", 120, 40);
+    margin-top: resizing(120, 40);
     max-width: $maxWidthPage;
     @media (max-width: 768px) {
       width: 100%;
@@ -21,8 +20,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    @include fluid-text("row-gap", 15, 10);
-    @include fluid-text("column-gap", 20, 5);
+    row-gap: resizing(15, 10);
+    column-gap: resizing(20, 5);
     @media (max-width: 768px) {
       width: 100%;
       max-width: 100%;
@@ -45,8 +44,8 @@
       grid-row: 2/3;
       grid-column: 1/2;
       img {
-        @include fluid-text("height", 710, 340);
-        @include fluid-text("width", 670, 300);
+        height: resizing(710, 340);
+        width: resizing(670, 300);
       }
     }
   }
@@ -57,7 +56,7 @@
     align-self: end;
     max-width: 580px;
     h3 {
-      @include fluid-text("font-size", 35, 30);
+      font-size: resizing(35, 30);
     }
     @media (max-width: 768px) {
       margin: 0 5px;
@@ -83,19 +82,18 @@
   }
   &__container-btn-bags {
     position: relative;
-    @include fluid-text2("top", -200, 0);
+    top: resizing(-200, 0);
     margin-top: 100px;
     left: 0;
     z-index: 1;
-    height: 666px;
     width: 100%;
-    @include fluid-text("height", 666, 200);
+    height: resizing(666, 200);
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    @include fluid-text("padding-right", 123, 10);
+    padding-right: resizing(123, 10);
     justify-content: center;
-    @include fluid-text("border-top-right-radius", 346, 60);
+    border-top-right-radius: resizing(346, 60);
     background: $productTitColor;
 
     @media (max-width: 768px) {
@@ -119,8 +117,8 @@
     top: 175px;
     left: -160px;
     @media (max-width: 1440px) {
-      @include fluid-text("top", 175, -80);
-      @include fluid-text("left", -160, -970);
+      top: resizing(175, -80);
+      left: resizing(-160, -970);
     }
     @media (max-width: 1024px) {
       display: none;
@@ -153,8 +151,7 @@
     @include st-desc-text;
     color: $textWhiteColor;
     max-width: 645px;
-    margin-bottom: 32px;
-    @include fluid-text("margin-bottom", 32, 16);
+    margin-bottom: resizing(32, 16);
     @media (max-width: 768px) {
       max-width: 550px;
     }
@@ -165,12 +162,13 @@
     font-family: $fontPlayfairDisplay;
     line-height: 47px;
     color: $textWhiteColor;
-    @include fluid-text("margin-bottom", 16, 10);
+    margin-bottom: resizing(16, 10);
     h4 {
-      @include fluid-text("font-size", 35, 30);
+      font-size: resizing(35, 30);
     }
   }
   &__button {
+    display: inline-block;
     align-self: flex-start;
     font-family: $fontMontserat;
     font-weight: 700;

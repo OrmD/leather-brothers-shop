@@ -36,34 +36,7 @@ $textSize14: rem(14);
 
 $borderRad: rem(22);
 /* Міксин для адаптиву */
-@mixin fluid-text($value, $max, $min) {
-  $maxViewportWidth: 1366;
-  $minViewportWidth: 360;
 
-  $maxSize: math.div($max, 16);
-  $minSize: math.div($min, 16);
-  $maxWidth: math.div($maxViewportWidth, 16);
-  $minWidth: math.div($minViewportWidth, 16);
-
-  $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
-  $yAxisIntersection: -$minWidth * $slope + $minSize;
-
-  #{$value}: clamp(#{$minSize * 1rem}, #{$yAxisIntersection * 1rem} + #{$slope * 100vw}, #{$maxSize * 1rem});
-}
-@mixin fluid-text2($value, $max, $min, $maxViewportWidth: 1366, $minViewportWidth: 360) {
-  $maxSize: math.div($max, 16);
-  $minSize: math.div($min, 16);
-  $maxWidth: math.div($maxViewportWidth, 16);
-  $minWidth: math.div($minViewportWidth, 16);
-
-  $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
-  $yAxisIntersection: -$minWidth * $slope + $minSize;
-  @if ($min>$max) {
-    #{$value}: clamp(#{$maxSize * 1rem}, #{$yAxisIntersection * 1rem} + #{$slope * 100vw}, #{$minSize * 1rem});
-  } @else if ($min<$max) {
-    #{$value}: clamp(#{$minSize * 1rem}, #{$yAxisIntersection * 1rem} + #{$slope * 100vw}, #{$maxSize * 1rem});
-  }
-}
 @function resizing($max, $min, $maxViewportWidth: 1366, $minViewportWidth: 360) {
   $maxSize: math.div($max, 16);
   $minSize: math.div($min, 16);
@@ -89,6 +62,6 @@ $borderRad: rem(22);
 }
 @mixin st-desc-text {
   font-family: $fontPopins;
-  @include fluid-text("font-size", 18, 16);
-  @include fluid-text("line-height", 30, 20);
+  font-size: resizing(18, 16);
+  line-height: resizing(30, 20);
 }
