@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles/main.scss";
 import App from "./App.jsx";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { HashRouter, Route, Routes } from "react-router";
 import { AboutUs } from "./pages/AboutUs.jsx";
 import { Products } from "./pages/Products.jsx";
 import { LabelSDS } from "./pages/LabelSDS.jsx";
@@ -15,7 +15,7 @@ import { Stories } from "./pages/Stories.jsx";
 import HeaderComponent from "./components/Header/Header.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <HeaderComponent />
       <Routes>
         <Route path="/" element={<App />} />
@@ -29,6 +29,6 @@ createRoot(document.getElementById("root")).render(
         <Route path="/Mission" element={<Mission />} />
         <Route path="/Stories" element={<Stories />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   </StrictMode>
 );
