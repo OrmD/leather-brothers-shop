@@ -9,7 +9,6 @@ import { LabelSDS } from "./pages/LabelSDS.jsx";
 import { News } from "./pages/News.jsx";
 import { Contacts } from "./pages/Contats.jsx";
 import { Categories } from "./pages/Categories.jsx";
-import { Footer } from "./components/Footer/Footer.jsx";
 import { Blogs } from "./pages/Blogs.jsx";
 import { Mission } from "./pages/Mission.jsx";
 import { Stories } from "./pages/Stories.jsx";
